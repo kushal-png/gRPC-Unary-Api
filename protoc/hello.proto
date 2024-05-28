@@ -1,0 +1,17 @@
+syntax = "proto3";
+package hello;
+option go_package = "./protoc";
+
+message HellpRequest{
+    string SomeString=1;
+}
+
+message HelloResponse{
+    string Reply =1;
+}
+
+service Exmaple{
+    rpc ServerReply (HellpRequest) returns (HelloResponse);
+}
+
+//protoc --proto_path=protoc --go_out=. --go-grpc_out=. protoc/hello.proto
